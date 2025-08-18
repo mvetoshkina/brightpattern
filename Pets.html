@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Правила перевозки домашних животных на авиарейсах</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937; /* slate-800 */
+      --muted: #4b5563; /* slate-600 */
+      --primary: #3b82f6; /* blue-500 */
+      --accent: #10b981;  /* emerald-500 */
+      --ring: rgba(15, 23, 42, .08);
+      --shadow: 0 8px 24px rgba(2, 6, 23, .06), 0 1px 2px rgba(2, 6, 23, .06);
+      --radius: 14px;
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color: var(--text); background: var(--bg); line-height: 1.55;
+    }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 24px; }
+
+    header.hero {
+      background: linear-gradient(135deg, #e5efff, #f0fdf4);
+      color: #0b1220; border-radius: calc(var(--radius) + 10px);
+      padding: 28px; position: relative; overflow: hidden; box-shadow: var(--shadow);
+      border: 1px solid var(--ring);
+    }
+
+    .hero h1 { margin: 0 0 6px; font-size: clamp(26px, 2.8vw + 14px, 42px); letter-spacing: .2px; }
+    .subtitle { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+
+    nav.pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+    nav.pills a { text-decoration: none; color: #0b1220; background: #fff; border: 1px solid var(--ring); padding: 9px 14px; border-radius: 999px; font-weight: 600; box-shadow: 0 1px 0 rgba(0,0,0,.04); }
+    nav.pills a:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.06); }
+
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 22px; }
+    .col-12 { grid-column: span 12; }
+    .col-6 { grid-column: span 12; }
+    @media (min-width: 860px) { .col-6 { grid-column: span 6; } }
+
+    .card { background: var(--card); border: 1px solid var(--ring); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); position: relative; overflow: clip; }
+    .card h2 { margin: 0 0 10px; font-size: clamp(20px, 1.6vw + 10px, 28px); }
+    .card h3 { margin: 18px 0 8px; font-size: 18px; }
+    .eyebrow { display: inline-block; font-weight: 700; letter-spacing: .4px; font-size: 12px; text-transform: uppercase; color: var(--muted); }
+
+    .checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 10px; }
+    .check { display: flex; gap: 10px; align-items: flex-start; border-left: 3px solid var(--primary); background: #f8fafc; border-radius: 8px; padding: 10px 12px; }
+    .check .icon { width: 22px; text-align: center; font-weight: 700; color: var(--primary); }
+
+    .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+
+    details.ac { border: 1px dashed var(--ring); border-radius: 10px; padding: 10px 12px; background: #fff; }
+    details.ac > summary { cursor: pointer; font-weight: 700; }
+
+    .badge { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--ring); background: #fff; }
+    .badge.blue { color: var(--primary); }
+    .badge.green { color: var(--accent); }
+
+    .note { background: #f8fafc; border: 1px solid var(--ring); border-radius: 10px; padding: 12px; }
+
+    .banner { display:flex; align-items:center; gap:12px; background: #eef2ff; border:1px solid #dbeafe; padding: 12px; border-radius: 10px; }
+
+    .cta-row { display:flex; gap:10px; flex-wrap: wrap; }
+    .btn { appearance: none; border: 0; padding: 11px 16px; border-radius: 10px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .btn.primary { background: var(--primary); color: white; }
+    .btn.ghost { background: white; border: 1px solid var(--ring); }
+
+    .footer { color: var(--muted); font-size: 13px; text-align: center; margin: 18px 0 6px; }
+
+    @media print {
+      nav.pills, .cta-row { display: none !important; }
+      header.hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none; }
+      .card { break-inside: avoid; box-shadow: none; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero" aria-label="Заголовок">
+      <h1>Правила перевозки домашних животных на авиарейсах</h1>
+      <p class="subtitle">Краткое практическое руководство по подготовке питомца к перелёту. Требования различаются у авиакомпаний и по направлениям — всегда уточняйте правила на официальном сайте вашего перевозчика.</p>
+      <nav class="pills" aria-label="Навигация по разделам">
+        <a href="#checklist">Чек‑лист</a>
+        <a href="#cabin">Перевозка в салоне</a>
+        <a href="#hold">В багажном отсеке / карго</a>
+        <a href="#carrier">Переноски и контейнеры</a>
+        <a href="#docs">Документы и здоровье</a>
+        <a href="#airport">В аэропорту</a>
+        <a href="#intl">Международные перелёты</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <section id="checklist" class="grid" aria-labelledby="checklist-h">
+      <div class="col-12 card">
+        <div class="eyebrow">Начните отсюда</div>
+        <h2 id="checklist-h">Краткий чек‑лист подготовки</h2>
+        <div class="checklist">
+          <div class="check"><div class="icon">1</div><div><strong>Уточните правила авиакомпании.</strong> Количество мест для животных ограничено. Проверьте лимиты по размерам/весу и сборы.</div></div>
+          <div class="check"><div class="icon">2</div><div><strong>Измерьте и взвесьте питомца с переноской.</strong> Для салона — габариты под передним креслом; крупные животные — обычно в багажном отсеке.</div></div>
+          <div class="check"><div class="icon">3</div><div><strong>Подготовьте документы.</strong> Справка от ветеринара, прививки (часто — бешенство), микрочип, при необходимости — разрешения.</div></div>
+          <div class="check"><div class="icon">4</div><div><strong>Используйте подходящую переноску.</strong> Непротекаемое дно, вентиляция, надёжная фиксация, мягкая подстилка.</div></div>
+          <div class="check"><div class="icon">5</div><div><strong>Режим перед вылетом.</strong> Лёгкая еда за 4–6 часов до вылета, вода в доступе, знакомая подстилка/игрушка. Седативные — только по назначению врача.</div></div>
+          <div class="check"><div class="icon">6</div><div><strong>Приезжайте заранее.</strong> Закладывайте дополнительное время на регистрацию и досмотр.</div></div>
+        </div>
+        <div class="banner" style="margin-top:12px">
+          <div><strong>Важно:</strong> Для некоторых пород (особенно брахицефальных) и очень молодых животных действуют ограничения. При экстремальной жаре/холоде возможны погодные эмбарго.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cabin" class="grid" aria-labelledby="cabin-h">
+      <div class="col-6 card">
+        <h2 id="cabin-h">Перевозка в салоне <span class="badge blue">Малые животные</span></h2>
+        <div class="two-col">
+          <div>
+            <h3>Критерии</h3>
+            <ul>
+              <li>Животное находится в закрытой вентилируемой переноске под передним креслом.</li>
+              <li>Чаще допускаются кошки и собаки; перечень видов у перевозчиков различается.</li>
+              <li>Обычно — 1 животное на пассажира; общее число в салоне ограничено.</li>
+              <li>Могут действовать лимиты по суммарному весу (например, 7–8 кг вместе с переноской) или только по «умещению под сиденьем» — уточняйте.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Переноска</h3>
+            <ul>
+              <li>Мягкая/полужёсткая переноска удобнее для размещения под сиденьем; дно — непротекаемое.</li>
+              <li>Животное должно <em>вставать, поворачиваться и лежать</em> свободно.</li>
+              <li>Переноска остаётся закрытой во время посадки и всего полёта.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note"><strong>Сборы:</strong> Плата за провоз в салоне обычно взимается за каждый сегмент маршрута. Оплата при бронировании или на регистрации — по правилам авиакомпании.</p>
+      </div>
+
+      <div class="col-6 card" id="hold">
+        <h2>Багажный отсек / карго <span class="badge green">Крупные животные</span></h2>
+        <div class="two-col">
+          <div>
+            <h3>Когда применяется</h3>
+            <ul>
+              <li>Если переноска не помещается под сиденье или направление не допускает животных в салоне.</li>
+              <li>Перевозка в герметичном и температурно контролируемом отсеке.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Дополнительные требования</h3>
+            <ul>
+              <li>Жёсткий контейнер стандарта IATA с металлической дверцей и болтовым креплением.</li>
+              <li>Поилка, доступная снаружи; маркировка «Животное».</li>
+              <li>Ограничения по породам и погоде встречаются чаще.</li>
+            </ul>
+          </div>
+        </div>
+        <details class="ac" style="margin-top:8px"><summary>Подбор размера контейнера (кратко)</summary>
+          <p>Измерьте длину от носа до основания хвоста (A) и высоту до макушки/кончиков ушей (B). Внутренняя длина контейнера ≥ A + 10 см, высота ≥ B + 10 см. Животное должно стоять, не задевая потолок.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="carrier" class="grid" aria-labelledby="carrier-h">
+      <div class="col-12 card">
+        <h2 id="carrier-h">Переноски и контейнеры</h2>
+        <div class="two-col">
+          <div>
+            <h3>Для салона</h3>
+            <ul>
+              <li>Мягкая или полужёсткая, полностью закрытая, вентиляция минимум с двух сторон.</li>
+              <li>Непротекаемое дно + впитывающая подстилка.</li>
+              <li>Надёжная молния/замок; животное не должно высовывать части тела.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Для багажного отсека/карго</h3>
+            <ul>
+              <li>Жёсткий пластик/металл/дерево; металлическая дверца; болтовые стяжки (без пластиковых клипов).</li>
+              <li>Вентиляция минимум с 3 сторон (для международных рейсов — часто с 4).</li>
+              <li>Корм закрепляют сверху, миска с водой — на дверце; внутри — подстилка.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Наклейте на контейнер ФИО, телефон, адрес назначения и кличку питомца. Полезно добавить свежую фотографию на случай потери.</p>
+      </div>
+    </section>
+
+    <section id="docs" class="grid" aria-labelledby="docs-h">
+      <div class="col-6 card">
+        <h2 id="docs-h">Документы и здоровье</h2>
+        <ul>
+          <li>Актуальная <strong>ветеринарная справка/сертификат</strong> (срок действия зависит от маршрута/перевозчика).</li>
+          <li><strong>Прививки</strong> (часто обязательна против бешенства; ревакцинация вовремя).</li>
+          <li><strong>Микрочип</strong> — обязателен для многих международных поездок.</li>
+          <li><strong>Разрешения на ввоз/вывоз</strong> и возможные <strong>карантинные требования</strong> по стране назначения.</li>
+          <li><strong>Без седативных</strong> средств, если только их не назначил ветеринар (на высоте возможны риски для дыхания).</li>
+        </ul>
+        <p class="note">Для маршрутов ЕС/Великобритания обычно требуются микрочип, прививка от бешенства и ветеринарный сертификат (или EU Pet Passport). Для въезда в Великобританию/Ирландию/Финляндию/Мальту/Норвегию у собак часто требуется обработка от ленточных глистов в заданное окно.</p>
+      </div>
+      <div class="col-6 card">
+        <h2>Бронирование и день вылета</h2>
+        <ul>
+          <li><strong>Забронируйте место для животного</strong> заранее — в салоне количество ограничено.</li>
+          <li><strong>Приезжайте раньше</strong> обычного (прибавьте ~30–45 минут).</li>
+          <li><strong>Выгуляйте</strong> питомца до аэропорта; используйте специальные зоны.</li>
+          <li><strong>Питание и вода:</strong> лёгкая еда за 4–6 ч; вода — по потребности; избегайте плотного кормления перед полётом.</li>
+          <li><strong>Прикрепите</strong> контакты и схему приёма лекарств (если есть) к переноске.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="airport" class="grid" aria-labelledby="airport-h">
+      <div class="col-6 card">
+        <h2 id="airport-h">Досмотр и посадка</h2>
+        <ul>
+          <li>На контроле безопасности животное вынимают из переноски и проходят через рамку, <strong>пустая переноска просвечивается на рентгене</strong>.</li>
+          <li>Используйте шлейку/поводок и бирки с контактами.</li>
+          <li>По возможности садитесь заранее; переноска остаётся закрытой в полёте.</li>
+        </ul>
+        <p class="note">Если питомец тревожится, положите внутрь знакомую вещь (подстилку/футболку владельца). Иногда помогают феромоновые спреи (по согласованию с ветеринаром).</p>
+      </div>
+      <div class="col-6 card">
+        <h2>Стыковки и прибытие</h2>
+        <ul>
+          <li>Выбирайте более длительные пересадки, чтобы была возможность вывести животное и проверить его состояние.</li>
+          <li>По прибытии посетите обозначенные зоны выгула до трансфера.</li>
+          <li>Следите за признаками стресса/перегрева; при необходимости обратитесь к ветеринару.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="intl" class="grid" aria-labelledby="intl-h">
+      <div class="col-12 card">
+        <h2 id="intl-h">Международные перелёты: планируйте заранее</h2>
+        <ul>
+          <li>Для отдельных стран требуются месяцы подготовки (анализ на антитела к бешенству, периоды ожидания).</li>
+          <li>Островные и свободные от бешенства территории часто применяют строгий карантин.</li>
+          <li>Правила обратного въезда могут отличаться от вылета — проверяйте оба направления.</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="airlineTip()">Найти правила моей авиакомпании</button>
+          <button class="btn ghost" onclick="window.print()">Печать / PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="grid" aria-labelledby="faq-h">
+      <div class="col-12 card">
+        <h2 id="faq-h">FAQ</h2>
+        <details class="ac"><summary>Приравниваются ли эмоциональные животные поддержки к служебным собакам?</summary>
+          <p>Зависит от политики перевозчика и законодательства направления. Многие авиакомпании признают только <strong>обучённых служебных собак</strong> как служебных животных. Животные эмоциональной поддержки часто перевозятся как обычные питомцы по стандартным правилам и со сборами. Носите с собой требуемые формы, если они предусмотрены.</p>
+        </details>
+        <details class="ac"><summary>Какие породы ограничены?</summary>
+          <p>Ограничения чаще касаются <em>брахицефальных</em> (плосколицых) пород (например, некоторые бульдоги, мопсы, персидские кошки) и ряда крупных/силовых пород при карго. Списки различаются — проверяйте у вашего перевозчика.</p>
+        </details>
+        <details class="ac"><summary>Что делать при аномальной жаре или холоде?</summary>
+          <p>Перевозчики могут вводить <strong>температурные ограничения</strong>, особенно для карго. Рассмотрите ночные/утренние рейсы или перелёт в более прохладный сезон.</p>
+        </details>
+      </div>
+    </section>
+
+    <p class="footer">Обновлено: 18 авг 2025 • Памятка носит информационный характер и не заменяет официальные правила авиакомпаний и госорганов.</p>
+  </div>
+
+  <script>
+    function airlineTip() {
+      alert("Совет: найдите на официальном сайте вашего перевозчика раздел с правилами перевозки животных. Уточните размеры переноски для салона, сборы, ограничения по породам и перечень документов именно для вашего маршрута.");
+    }
+  </script>
+</body>
+</html>
